@@ -1,12 +1,25 @@
 package com.jinju.Ramyun.service;
 
+import com.jinju.Ramyun.model.BoardDTO;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class MainService {
+public interface MainService {
 
-    public String getTime(){
+    public abstract List<BoardDTO> boardList();
 
-        return "";
-    }
+//    public String getTime(){
+//
+//        return "";
+//    }
+//
+//    public String board() {
+//
+//        System.out.println("보드를 실행해야 합니다.");
+//
+//        return "board";
+//    }
+
 }

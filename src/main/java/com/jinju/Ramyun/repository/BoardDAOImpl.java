@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class BoardDATOImpl implements BoardDAO {
+public class BoardDAOImpl implements BoardDAO {
 
     @Override
     public List<BoardDTO> boardList(SqlSessionTemplate sessionTemplate) {

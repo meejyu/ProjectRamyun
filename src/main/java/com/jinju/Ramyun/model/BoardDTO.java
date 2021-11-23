@@ -1,5 +1,8 @@
 package com.jinju.Ramyun.model;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("board")
 public class BoardDTO {
 
     private int id;
