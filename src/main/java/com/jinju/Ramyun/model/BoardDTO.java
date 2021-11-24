@@ -30,6 +30,7 @@ public class BoardDTO {
         return age;
     }
 
+
     public void setAge(int age) {
         this.age = age;
     }
@@ -50,5 +51,14 @@ public class BoardDTO {
 
     }
 
+    @Override
+    public String toString() {
+        return "BoardDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", hobby='" + hobby + '\'' +
+                '}';
+    }
 
 }
