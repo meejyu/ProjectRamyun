@@ -1,6 +1,6 @@
 package com.jinju.Ramyun.dao;
 
-import com.jinju.Ramyun.model.BoardDTO;
+import com.jinju.Ramyun.model.RamyunRecipeDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -10,12 +10,12 @@ import java.util.List;
 @Mapper
 public interface BoardMapper {
 
-    BoardDTO getBoardDto(int id);
+    RamyunRecipeDTO getBoardDto(int id);
 
-    List<BoardDTO> getBoardList();
+    List<RamyunRecipeDTO> getBoardList();
 
-    int createBoard (BoardDTO boardDTO);
-    int updateBoard (BoardDTO boardDTO);
+    int createBoard (RamyunRecipeDTO ramyunRecipeDTO);
+    int updateBoard (RamyunRecipeDTO ramyunRecipeDTO);
     int deleteBoard (int id);
 
 }
