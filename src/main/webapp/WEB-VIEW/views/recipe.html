@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+    <script>
+    $(function(){
+        $.ajax({
+            url: "/ramyum/recipe",
+            type: "POST",
+            datatype: "json",
+            async: false,
+            success: function(result){
+                console.log(result);
+            }
+        })
+
+    })
+    </script>
 </head>
 <body>
-  <h2>라면레시피 게시판</h2>
+    <h2>라면게시판</h2>
 </body>
 </html>

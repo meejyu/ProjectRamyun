@@ -2,8 +2,8 @@ package com.jinju.Ramyun.model;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("postscript")
-public class RamyunPostscriptDTO {
+@Alias("recipe")
+public class RecipeDTO {
 
     private int num;
     private String title;
@@ -11,7 +11,7 @@ public class RamyunPostscriptDTO {
     private String content;
     private String postdate;
     private String poster;
-    private int visitcount;
+    private int visitCount;
     private int commentNum;
 
     public int getNum() {
@@ -62,12 +62,12 @@ public class RamyunPostscriptDTO {
         this.poster = poster;
     }
 
-    public int getVisitcount() {
-        return visitcount;
+    public int getVisitCount() {
+        return visitCount;
     }
 
-    public void setVisitcount(int visitcount) {
-        this.visitcount = visitcount;
+    public void setVisitCount(int visitCount) {
+        this.visitCount = visitCount;
     }
 
     public int getCommentNum() {
@@ -80,14 +80,14 @@ public class RamyunPostscriptDTO {
 
     @Override
     public String toString() {
-        return "RamyunRecipeDTO{" +
+        return "RecipeDTO{" +
                 "num=" + num +
                 ", title='" + title + '\'' +
                 ", picture='" + picture + '\'' +
                 ", content='" + content + '\'' +
                 ", postdate='" + postdate + '\'' +
                 ", poster='" + poster + '\'' +
-                ", visitcount=" + visitcount +
+                ", visitCount=" + visitCount +
                 ", commentNum=" + commentNum +
                 '}';
     }

@@ -1,56 +1,79 @@
 package com.jinju.Ramyun.controller;
 
-import com.jinju.Ramyun.model.RamyunRecipeDTO;
+import com.jinju.Ramyun.model.RecipeDTO;
+import com.jinju.Ramyun.model.ReviewDTO;
 import com.jinju.Ramyun.service.MainService;
+import com.jinju.Ramyun.service.RecipeService;
+import com.jinju.Ramyun.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
-//@RequestMapping("/")
+@RequestMapping("/")
 public class MainController {
 
     @Autowired
     MainService mainService;
 
-    @RequestMapping("ramyum")
+    @Autowired
+    RecipeService recipeService;
+
+    @Autowired
+    ReviewService reviewService;
+
+    @RequestMapping("/")
     public String selectAllBoard() {
-//        List<RamyunRecipeDTO> list = mainService.getBoardList();
+//        List<RecipeDTO> list = mainService.getBoardList();
 //        System.out.println("리스트 출력되나?"+list+"리스트 출력");
-//        for(RamyunRecipeDTO data : list) {
+//        for(RecipeDTO data : list) {
 //            System.out.println(data.toString());
 //        }
         return "main";
     }
 
-    @RequestMapping("ramyum/recipe")
-    public String RecipeSelect() {
-        List<RamyunRecipeDTO> selectList = mainService.getBoardList();
-        for(RamyunRecipeDTO data : selectList) {
-            System.out.println(data.toString());
-        }
-        return "index";
+    @RequestMapping("bbb")
+    public String bbb() {
+//        List<RecipeDTO> list = mainService.getBoardList();
+//        System.out.println("리스트 출력되나?"+list+"리스트 출력");
+//        for(RecipeDTO data : list) {
+//            System.out.println(data.toString());
+//        }
+        return "recipe";
     }
 
-    @RequestMapping("ramyum/postscript")
+    @RequestMapping("ramyum/recipe")
+    @ResponseBody
+    public ModelMap RecipeSelect() {
+        ModelMap modelMap = new ModelMap();
+        List<RecipeDTO> selectList = recipeService.recipeList();
+
+        for(RecipeDTO data : selectList) {
+            System.out.println("레시피 데이터 확인");
+            System.out.println(data.toString());
+        }
+        modelMap.put("list",selectList);
+        return modelMap;
+    }
+
+    @RequestMapping("ramyum/review")
     public String create() {
-        RamyunRecipeDTO dto = new RamyunRecipeDTO();
-//        dto.setId(8);
-//        dto.setAge(80);
-//        dto.setName("지니땅");
-//        dto.setHobby("게임보이");
-        mainService.createBoard(dto);
-        RamyunRecipeDTO ramyunRecipeDTO = mainService.getBoardDto(7);
-        System.out.println("아이디로 찾은 내용 출력하기");
-        System.out.println(ramyunRecipeDTO.toString());
-        return "index";
+        List<ReviewDTO> selectList = reviewService.reviewList();
+        for(ReviewDTO data : selectList) {
+            System.out.println("리뷰 데이터 확인");
+            System.out.println(data.toString());
+        }
+        return "review";
     }
 
     @RequestMapping("/update")
     public String update() {
-        RamyunRecipeDTO dto = new RamyunRecipeDTO();
+        RecipeDTO dto = new RecipeDTO();
 //        dto.setId(1);
 //        dto.setName("조용히해");
 //        mainService.updateBoard(dto);
@@ -59,18 +82,18 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("/delete")
-    public String delete() {
-        mainService.deleteBoard(2);
-        System.out.println("아이디로 찾은 내용 출력하기");
-        try {
-            RamyunRecipeDTO ramyunRecipeDTO = mainService.getBoardDto(2);
-        }
-        catch (Exception e) {
-            System.out.println("널값 잘 잡았다"+e.toString());
-        }
-        return "index";
-    }
+//    @RequestMapping("/delete")
+//    public String delete() {
+//        mainService.deleteBoard(2);
+//        System.out.println("아이디로 찾은 내용 출력하기");
+//        try {
+//            RecipeDTO recipeDTO = mainService.getBoardDto(2);
+//        }
+//        catch (Exception e) {
+//            System.out.println("널값 잘 잡았다"+e.toString());
+//        }
+//        return "index";
+//    }
 
 
 }

@@ -38,8 +38,7 @@
 			<artifactId>mariadb-java-client</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<!-- mybatis 시작 설정 !-->
-
+		<!-- mybatis 설정 끝 !-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
