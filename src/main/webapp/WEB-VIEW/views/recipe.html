@@ -14,14 +14,16 @@
             datatype: "json",
             async: false,
             success: function(result){
-                console.log(result);
+                console.log(result["list"][0]);
+                $("h2").html(result["list"][0]["title"]);
             }
         })
-
     })
     </script>
 </head>
 <body>
-    <h2>라면게시판</h2>
+    <h2>라면 레시피 게시판</h2>
+    <h2>현진이가 라면 게시판 띄어줄것</h2>
+
 </body>
 </html>

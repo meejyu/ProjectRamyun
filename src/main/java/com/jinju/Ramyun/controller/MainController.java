@@ -11,7 +11,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -34,11 +33,13 @@ public class MainController {
 //        for(RecipeDTO data : list) {
 //            System.out.println(data.toString());
 //        }
+
         return "main";
     }
 
-    @RequestMapping("bbb")
-    public String bbb() {
+    //view를 보여주는 API
+    @RequestMapping("ramyum/recipe")
+    public String recipeView() {
 //        List<RecipeDTO> list = mainService.getBoardList();
 //        System.out.println("리스트 출력되나?"+list+"리스트 출력");
 //        for(RecipeDTO data : list) {
@@ -47,9 +48,10 @@ public class MainController {
         return "recipe";
     }
 
-    @RequestMapping("ramyum/recipe")
+    //데이터를 보내주는 API
+    @RequestMapping("ramyum/recipeBoard")
     @ResponseBody
-    public ModelMap RecipeSelect() {
+    public ModelMap recipeSelect() {
         ModelMap modelMap = new ModelMap();
         List<RecipeDTO> selectList = recipeService.recipeList();
 
@@ -61,26 +63,47 @@ public class MainController {
         return modelMap;
     }
 
+    //view를 보여주는 API
     @RequestMapping("ramyum/review")
-    public String create() {
+    public String reviewView() {
+        return "review";
+    }
+
+    //데이터를 보내주는 API
+    @RequestMapping("ramyum/reviewBoard")
+    @ResponseBody
+    public ModelMap reviewSelect() {
+        ModelMap modelMap = new ModelMap();
         List<ReviewDTO> selectList = reviewService.reviewList();
+
         for(ReviewDTO data : selectList) {
             System.out.println("리뷰 데이터 확인");
             System.out.println(data.toString());
         }
-        return "review";
+        modelMap.put("list",selectList);
+        return modelMap;
     }
+//
+//    @RequestMapping("ramyum")
+//    public String create() {
+//        List<ReviewDTO> selectList = reviewService.reviewList();
+//        for(ReviewDTO data : selectList) {
+//            System.out.println("리뷰 데이터 확인");
+//            System.out.println(data.toString());
+//        }
+//        return "review";
+//    }
 
-    @RequestMapping("/update")
-    public String update() {
-        RecipeDTO dto = new RecipeDTO();
-//        dto.setId(1);
-//        dto.setName("조용히해");
-//        mainService.updateBoard(dto);
-//        System.out.println("아이디로 찾은 내용 출력하기");
-//        System.out.println(dto.toString());
-        return "index";
-    }
+//    @RequestMapping("/update")
+//    public String update() {
+//        RecipeDTO dto = new RecipeDTO();
+////        dto.setId(1);
+////        dto.setName("조용히해");
+////        mainService.updateBoard(dto);
+////        System.out.println("아이디로 찾은 내용 출력하기");
+////        System.out.println(dto.toString());
+//        return "index";
+//    }
 
 //    @RequestMapping("/delete")
 //    public String delete() {
@@ -94,6 +117,7 @@ public class MainController {
 //        }
 //        return "index";
 //    }
+
 
 
 }
