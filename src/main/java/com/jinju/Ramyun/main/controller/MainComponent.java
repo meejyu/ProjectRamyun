@@ -1,4 +1,4 @@
-package com.jinju.Ramyun.controller;
+package com.jinju.Ramyun.main.controller;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

@@ -1,6 +1,6 @@
-package com.jinju.Ramyun.dao;
+package com.jinju.Ramyun.recipe.dao;
 
-import com.jinju.Ramyun.model.RecipeDTO;
+import com.jinju.Ramyun.recipe.model.RecipeDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

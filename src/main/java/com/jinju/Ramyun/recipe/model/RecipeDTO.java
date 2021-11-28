@@ -1,4 +1,4 @@
-package com.jinju.Ramyun.model;
+package com.jinju.Ramyun.recipe.model;
 
 import org.apache.ibatis.type.Alias;
 

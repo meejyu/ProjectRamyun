@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!--namespace는 파일명을 적음!-->
-<mapper namespace="com.jinju.Ramyun.dao.RecipeMapper">
+<mapper namespace="com.jinju.Ramyun.recipe.dao.RecipeMapper">
 
     <!--id는 메소드명, DTO에 @Alias의 이름을 적으면됨!-->
     <select id="recipeList" resultType="recipe">

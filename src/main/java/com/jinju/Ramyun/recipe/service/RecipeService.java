@@ -1,7 +1,7 @@
-package com.jinju.Ramyun.service;
+package com.jinju.Ramyun.recipe.service;
 
-import com.jinju.Ramyun.dao.RecipeMapper;
-import com.jinju.Ramyun.model.RecipeDTO;
+import com.jinju.Ramyun.recipe.dao.RecipeMapper;
+import com.jinju.Ramyun.recipe.model.RecipeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,17 +1,14 @@
-package com.jinju.Ramyun.controller;
+package com.jinju.Ramyun.main.controller;
 
-import com.jinju.Ramyun.model.RecipeDTO;
-import com.jinju.Ramyun.model.ReviewDTO;
-import com.jinju.Ramyun.service.MainService;
-import com.jinju.Ramyun.service.RecipeService;
-import com.jinju.Ramyun.service.ReviewService;
+import com.jinju.Ramyun.main.model.LoginDTO;
+import com.jinju.Ramyun.main.model.MemberDTO;
+import com.jinju.Ramyun.main.service.MainService;
+import com.jinju.Ramyun.main.service.MemberService;
+import com.jinju.Ramyun.recipe.service.RecipeService;
+import com.jinju.Ramyun.review.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/")
@@ -21,10 +18,23 @@ public class MainController {
     MainService mainService;
 
     @Autowired
-    RecipeService recipeService;
+    MemberService memberService;
 
-    @Autowired
-    ReviewService reviewService;
+    //회원가입
+    @RequestMapping("/signIn")
+    public String loginInput(MemberDTO memberDTO) {
+        memberService.memberCreate(memberDTO);
+
+        return "signIn";
+    }
+
+    //로그인
+    @RequestMapping("/login")
+    public String loginInput(LoginDTO loginDTO) {
+        mainService.login(loginDTO);
+
+        return "login";
+    }
 
     @RequestMapping("/")
     public String selectAllBoard() {
@@ -37,52 +47,22 @@ public class MainController {
         return "main";
     }
 
-    //view를 보여주는 API
-    @RequestMapping("ramyum/recipe")
-    public String recipeView() {
+    @RequestMapping("/signUp")
+    public String signUp() {
 //        List<RecipeDTO> list = mainService.getBoardList();
 //        System.out.println("리스트 출력되나?"+list+"리스트 출력");
 //        for(RecipeDTO data : list) {
 //            System.out.println(data.toString());
 //        }
-        return "recipe";
+
+        return "signIn";
     }
 
-    //데이터를 보내주는 API
-    @RequestMapping("ramyum/recipeBoard")
-    @ResponseBody
-    public ModelMap recipeSelect() {
-        ModelMap modelMap = new ModelMap();
-        List<RecipeDTO> selectList = recipeService.recipeList();
 
-        for(RecipeDTO data : selectList) {
-            System.out.println("레시피 데이터 확인");
-            System.out.println(data.toString());
-        }
-        modelMap.put("list",selectList);
-        return modelMap;
-    }
 
-    //view를 보여주는 API
-    @RequestMapping("ramyum/review")
-    public String reviewView() {
-        return "review";
-    }
 
-    //데이터를 보내주는 API
-    @RequestMapping("ramyum/reviewBoard")
-    @ResponseBody
-    public ModelMap reviewSelect() {
-        ModelMap modelMap = new ModelMap();
-        List<ReviewDTO> selectList = reviewService.reviewList();
 
-        for(ReviewDTO data : selectList) {
-            System.out.println("리뷰 데이터 확인");
-            System.out.println(data.toString());
-        }
-        modelMap.put("list",selectList);
-        return modelMap;
-    }
+
 //
 //    @RequestMapping("ramyum")
 //    public String create() {

@@ -1,6 +1,6 @@
-package com.jinju.Ramyun.dao;
+package com.jinju.Ramyun.review.dao;
 
-import com.jinju.Ramyun.model.ReviewDTO;
+import com.jinju.Ramyun.review.model.ReviewDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

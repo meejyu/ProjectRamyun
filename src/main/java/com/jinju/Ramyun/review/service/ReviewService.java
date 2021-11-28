@@ -1,7 +1,7 @@
-package com.jinju.Ramyun.service;
+package com.jinju.Ramyun.review.service;
 
-import com.jinju.Ramyun.dao.ReviewMapper;
-import com.jinju.Ramyun.model.ReviewDTO;
+import com.jinju.Ramyun.review.dao.ReviewMapper;
+import com.jinju.Ramyun.review.model.ReviewDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

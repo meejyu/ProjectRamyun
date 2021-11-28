@@ -1,4 +1,4 @@
-package com.jinju.Ramyun.model;
+package com.jinju.Ramyun.review.model;
 
 import org.apache.ibatis.type.Alias;
 
