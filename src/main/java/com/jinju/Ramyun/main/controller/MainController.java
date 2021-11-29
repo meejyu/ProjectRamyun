@@ -8,6 +8,8 @@ import com.jinju.Ramyun.recipe.service.RecipeService;
 import com.jinju.Ramyun.review.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -27,15 +29,7 @@ public class MainController {
 
         return "signIn";
     }
-
-    //로그인
-    @RequestMapping("/login")
-    public String loginInput(LoginDTO loginDTO) {
-        mainService.login(loginDTO);
-
-        return "login";
-    }
-
+    
     @RequestMapping("/")
     public String selectAllBoard() {
 //        List<RecipeDTO> list = mainService.getBoardList();
@@ -45,6 +39,14 @@ public class MainController {
 //        }
 
         return "main";
+    }
+
+    //로그인
+    @PostMapping("/login")
+    public String login(@RequestBody LoginDTO loginDTO) {
+        mainService.login(loginDTO);
+
+        return "login 성공";
     }
 
     @RequestMapping("/signUp")
